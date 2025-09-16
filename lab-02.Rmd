@@ -7,17 +7,17 @@ output: github_document
 
 ## Chargement des packages et des données
 
-```{r load-packages, message=FALSE}
+```{r load-packages, message=TRUE}
 library(tidyverse) 
 ```
 
-```{r load-data, message=FALSE}
+```{r load-data, message=TRUE}
 plastic_waste <- read_csv("data/plastic-waste.csv")
 ```
 
 Commençons par filtrer les données pour retirer le point représenté par Trinité et Tobago (TTO) qui est un outlier.
 
-```{r filter-data, message=FALSE}
+```{r filter-data, message=TRUE}
 plastic_waste <- plastic_waste %>%
   filter(plastic_waste_per_cap < 3.5)
 ```
@@ -49,16 +49,20 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap,
 Boxplot:
 
 ```{r plastic-waste-boxplot}
-# insert code here
+ggplot(plastic_waste, aes(x = continent,
+                          y = plastic_waste_per_cap)) +
+  geom_boxplot()
 ```
 
 Violin plot:
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(plastic_waste, aes(x = continent,
+                          y = plastic_waste_per_cap)) +
+  geom_violin()
 ```
 
-Réponse à la question...
+Les violins plots nous permettent de voir comment est distribué le 50% des données qui se trouve dans le violon, alors que les box plots nous montrent seulement l'étendu de ce 50% et où se trouve la médiane.
 
 ### Exercise 4
 
