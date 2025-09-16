@@ -112,19 +112,51 @@ sa quantité de déchets non gérés augmente.
 ### Exercise 5
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap,
+                          y = total_pop,
+                          color = continent)) +
+  geom_point()
 ```
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-population-total-1.png)<!-- -->
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap,
+                          y = coastal_pop,
+                          color = continent)) +
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
+
+La tendence qu’un pays produise plus de déchets plus sa population est
+grande devient plus significative si nous regardons seulement la
+population vivant près d’une côte.
 
 ## Conclusion
 
 Recréez la visualisation:
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = coastal_pop / total_pop,
+                          y = plastic_waste_per_cap,
+                          color = continent)) +
+  geom_point() + geom_smooth(aes(group = 1),color = "black",  se = TRUE) +
+  labs(title = "Quantité de déchets plastiques vs Proportion de la population côtière",
+       subtitle = "Selon le continent",
+       x = "Proportion de la population côtière (Coastal / total population)", y = "Nombre de déchets plastiques par habitant",
+       color = "Continent")
 ```
+
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+    ## Warning: Removed 10 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
