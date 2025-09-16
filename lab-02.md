@@ -98,10 +98,16 @@ montrent seulement l’étendu de ce 50% et où se trouve la médiane.
 ### Exercise 4
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap,
+                          y = mismanaged_plastic_waste_per_cap, 
+                          color = continent)) +
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged-1.png)<!-- -->
+
+J’observe que de manière générale, plus un pays génère de déchets, plus
+sa quantité de déchets non gérés augmente.
 
 ### Exercise 5
 

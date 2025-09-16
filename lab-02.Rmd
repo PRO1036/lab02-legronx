@@ -68,10 +68,13 @@ Les violins plots nous permettent de voir comment est distribué le 50% des donn
 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap,
+                          y = mismanaged_plastic_waste_per_cap, 
+                          color = continent)) +
+  geom_point()
 ```
 
-Réponse à la question...
+J'observe que de manière générale, plus un pays génère de déchets, plus sa quantité de déchets non gérés augmente. 
 
 ### Exercise 5
 
