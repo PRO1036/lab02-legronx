@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Votre nom"
-date: "La date"
+author: "Simon Groulx"
+date: "16/09/2025"
 output: github_document
 ---
 
@@ -28,16 +28,21 @@ plastic_waste <- plastic_waste %>%
 ### Exercise 1
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2) +
+  facet_wrap(~ continent, ncol = 3)
 ```
-
+ 
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap,
+                          color = continent,
+                          fill = continent)) +
+  geom_density(alpha = 0.5)
 ```
 
-Réponse à la question...
+"alpha" n'est pas au même endroit que "color" et "fill" puisque, contrairement au deux autres, je veux que la transparence de chaque courbe soit identique, alors que je veux qu'elles soient de couleurs différentes (une couleur pour chacune des variables).
 
 ### Exercise 3
 
